@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Health & Fitness Tracker</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏋️ Health & Fitness Tracker</h1>
+
+    <!-- 3-column menu -->
+    <div class="menu">
+      <button onclick="showSection('bmi')">✏️ BMI</button>
+      <button onclick="showSection('water')">💧 Water</button>
+      <button onclick="showSection('workout')">🏃 Workout</button>
+      <button onclick="showSection('bp')">❤️ Blood Pressure</button>
+      <button onclick="showSection('glucose')">🩸 Glucose</button>
+      <button onclick="showSection('sleep')">😴 Sleep</button>
+      <button onclick="showSection('steps')">👣 Steps</button>
+      <button onclick="showSection('mood')">😊 Mood</button>
+      <button onclick="showSection('age')">👵 Age Index</button>
+      <button onclick="showSection('antioxidant')">🍎 Antioxidant</button>
+      <button onclick="showSection('vascular')">🫀 Vascular</button>
+      <button onclick="showSection('charts')">📊 All Charts</button>
+    </div>
+
+    <!-- Sections -->
+    <main>
+      <section id="bmi" class="hidden">
+        <h2>BMI Calculator</h2>
+        <input id="height" type="number" placeholder="Height (cm)">
+        <input id="weight" type="number" placeholder="Weight (kg)">
+        <button onclick="checkBMI()">Calculate BMI</button>
+        <p id="bmiResult"></p>
+        <canvas id="bmiChart"></canvas>
+      </section>
+
+      <section id="water" class="hidden">
+        <h2>Water Intake</h2>
+        <input id="waterGlasses" type="number" placeholder="Glasses today">
+        <button onclick="checkWater()">Save Water</button>
+        <p id="waterResult"></p>
+        <canvas id="waterChart"></canvas>
+      </section>
+
+      <section id="workout" class="hidden">
+        <h2>Workout</h2>
+        <input id="workoutMins" type="number" placeholder="Minutes today">
+        <select id="workoutType">
+          <option value="cardio">Cardio</option>
+          <option value="strength">Strength</option>
+          <option value="flexibility">Flexibility</option>
+        </select>
+        <button onclick="checkWorkout()">Save Workout</button>
+        <p id="workoutResult"></p>
+        <canvas id="workoutChart"></canvas>
+      </section>
+
+      <section id="bp" class="hidden">
+        <h2>Blood Pressure</h2>
+        <input id="systolic" type="number" placeholder="Systolic mmHg">
+        <input id="diastolic" type="number" placeholder="Diastolic mmHg">
+        <button onclick="checkBP()">Check BP</button>
+        <p id="bpResult"></p>
+        <canvas id="bpChart"></canvas>
+      </section>
+
+      <section id="glucose" class="hidden">
+        <h2>Blood Glucose</h2>
+        <input id="glucoseValue" type="number" placeholder="Glucose (mg/dL)">
+        <select id="glucoseType">
+          <option value="fasting">Fasting</option>
+          <option value="postmeal">Post-meal (2hr)</option>
+        </select>
+        <button onclick="checkGlucose()">Check Glucose</button>
+        <p id="glucoseResult"></p>
+        <canvas id="glucoseChart"></canvas>
+      </section>
+
+      <section id="sleep" class="hidden">
+        <h2>Sleep</h2>
+        <input id="sleepHours" type="number" placeholder="Hours slept last night">
+        <button onclick="checkSleep()">Save Sleep</button>
+        <p id="sleepResult"></p>
+        <canvas id="sleepChart"></canvas>
+      </section>
+
+      <section id="steps" class="hidden">
+        <h2>Steps</h2>
+        <input id="stepsCount" type="number" placeholder="Steps today">
+        <button onclick="checkSteps()">Save Steps</button>
+        <p id="stepsResult"></p>
+        <canvas id="stepsChart"></canvas>
+      </section>
+
+      <section id="mood" class="hidden">
+        <h2>Mood</h2>
+        <input id="moodSlider" type="range" min="1" max="5" value="3">
+        <button onclick="checkMood()">Save Mood</button>
+        <p id="moodResult"></p>
+        <canvas id="moodChart"></canvas>
+      </section>
+
+      <section id="age" class="hidden">
+        <h2>Age Index</h2>
+        <input id="ageValue" type="number" placeholder="Age in years">
+        <button onclick="checkAge()">Check</button>
+        <p id="ageResult"></p>
+        <canvas id="ageChart"></canvas>
+      </section>
+
+      <section id="antioxidant" class="hidden">
+        <h2>Antioxidant Index</h2>
+        <input id="antioxidantValue" type="number" placeholder="Fruit/veg portions per day">
+        <button onclick="checkAntioxidant()">Check</button>
+        <p id="antioxidantResult"></p>
+        <canvas id="antioxidantChart"></canvas>
+      </section>
+
+      <section id="vascular" class="hidden">
+        <h2>Vascular Index</h2>
+        <input id="stressValue" type="number" placeholder="Stress level 1-100">
+        <button onclick="checkVascular()">Check</button>
+        <p id="vascularResult"></p>
+        <canvas id="vascularChart"></canvas>
+      </section>
+
+      <section id="charts" class="hidden">
+        <h2>All Charts (last 14 entries)</h2>
+        <div class="charts-grid">
+          <canvas id="allStepsChart"></canvas>
+          <canvas id="allGlucoseChart"></canvas>
+          <canvas id="allSleepChart"></canvas>
+          <canvas id="allBMIChart"></canvas>
+          <canvas id="allWaterChart"></canvas>
+          <canvas id="allBPChart"></canvas>
+          <canvas id="allMoodChart"></canvas>
+          <canvas id="allAgeChart"></canvas>
+          <canvas id="allAntioxidantChart"></canvas>
+          <canvas id="allVascularChart"></canvas>
+        </div>
+        <h2>Weekly Overview</h2>
+        <canvas id="weeklyOverviewChart"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="backend.js"></script>
+</body>
+</html>

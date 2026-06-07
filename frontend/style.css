@@ -1,0 +1,138 @@
+/* Use your gym image filename: gym-bg.jpg in same folder */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: url("images/background.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Fallback remote image if local not present */
+@media (min-width:1px){
+  body:before{ content:""; position:fixed; inset:0; z-index:-1;
+    background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25));
+  }
+}
+
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  background: rgba(0,0,0,0.72);
+  color: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+/* Title */
+h1 { margin: 0 0 18px 0; font-size: 28px; }
+
+/* Menu grid like screenshot */
+.menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.menu button {
+  background: #007bff; /* blue */
+  color: #fff;
+  border: none;
+  padding: 14px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+  transition: transform .12s ease, background .12s;
+}
+
+.menu button:hover { transform: translateY(-3px); background: #0056b3; }
+
+/* Main sections */
+main { margin-top: 6px; }
+
+section {
+  display: none;
+  margin-top: 18px;
+  background: rgba(255,255,255,0.03);
+  padding: 18px;
+  border-radius: 10px;
+}
+
+/* Show class */
+.hidden { display: none; }
+.visible { display: block; }
+
+/* Inputs & selects */
+input[type="number"], select, input[type="range"] {
+  width: 90%;
+  max-width: 500px;
+  padding: 10px;
+  margin: 8px auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Buttons inside sections */
+section button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Chart canvas style
+canvas {
+  width: 100% !important;
+  max-height: 260px;
+  margin-top: 12px;
+}
+
+/* charts grid in All Charts */
+/* .charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin-top: 10px;
+} 
+ */  
+
+
+
+ canvas { 
+  width: 100% !important; 
+  height: auto !important; 
+  max-height: 320px;
+  margin-top: 12px; 
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin-top: 10px;
+}
+
+.charts-grid > div {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.charts-grid h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 1px 4px #000;
+}
